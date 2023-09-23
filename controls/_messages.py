@@ -22,6 +22,13 @@ def success(is_new):
     return 1
 
 
+def shell_execute_error(error, path):
+    message = QtWidgets.QMessageBox(QtWidgets.QMessageBox.Icon.Critical, 'Сообщение', error, QtWidgets.QMessageBox.StandardButton.Ok)
+    message.setWindowIcon(QtGui.QIcon(QtGui.QPixmap(":/images/pngs/main-icon.png")))
+    message.setInformativeText(path)
+    message.exec()
+
+
 def ask_for_delete(info):
     def click(button, r):
         r.value = 1 if button.text() == 'Да' else 0
