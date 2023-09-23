@@ -1,0 +1,23 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icons/refresh.ico</file>
+    <file>icons/printer.ico</file>
+    <file>icons/save-button.ico</file>
+    <file>icons/trash-can.ico</file>
+    <file>icons/pencil.ico</file>
+    <file>icons/duplicate.ico</file>
+    <file>icons/excel.ico</file>
+    <file>icons/eye.ico</file>
+    <file>icons/filter.ico</file>
+    <file>icons/minus.ico</file>
+    <file>icons/open-file.ico</file>
+    <file>icons/open-folder.ico</file>
+    <file>icons/paperclip.ico</file>
+    <file>icons/plus.ico</file>
+    <file>icons/settings.ico</file>
+    <file>icons/zoom.ico</file>
+  </qresource>
+  <qresource prefix="images">
+    <file>pngs/main-icon.png</file>
+  </qresource>
+</RCC>
