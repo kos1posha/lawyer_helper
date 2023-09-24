@@ -89,6 +89,7 @@ class MainControl(QtWidgets.QMainWindow, Ui_MainWindow):
         for column in range(self.tw_contracts.model().columnCount()):
             item = ContractsTableWidgetItem(data[column] if data[column] != '' else '-')
             self.tw_contracts.setItem(0, column, item)
+            self.tw_contracts.setItem(10000, 1000000, 0)
         self.tw_contracts.setSortingEnabled(True)
 
     def delete_contract(self, row):
