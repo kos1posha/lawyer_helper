@@ -1,3 +1,4 @@
+import locale
 import os, sys, traceback, logging
 
 from PySide6 import QtWidgets
@@ -14,8 +15,9 @@ def excepthook(exc_type, exc_value, exc_tb):
 
 
 if __name__ == '__main__':
-    sys.excepthook = excepthook
     logging.basicConfig(level=logging.ERROR, filename=os.path.abspath('debug.log'), filemode='a', format='[%(asctime)s]\n%(message)s', datefmt='%X %x')
+    locale.setlocale(locale.LC_ALL, ('ru_RU', 'UTF-8'))
+    sys.excepthook = excepthook
     app = QApplication(sys.argv)
     app.setStyle('Fusion')
     window = QMainWindow()
