@@ -52,7 +52,7 @@
    <item>
     <widget class="QTabWidget" name="tw_addictions">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="t_act_form">
       <property name="enabled">
@@ -2447,28 +2447,48 @@
   <tabstop>de_af_date</tabstop>
   <tabstop>le_af_price</tabstop>
   <tabstop>le_af_price_text</tabstop>
+  <tabstop>cmb_af_service</tabstop>
+  <tabstop>pb_af_toggle_service</tabstop>
+  <tabstop>le_af_company</tabstop>
+  <tabstop>pb_af_save</tabstop>
+  <tabstop>pb_af_open_file</tabstop>
+  <tabstop>pb_af_open_folder</tabstop>
+  <tabstop>pb_af_docx</tabstop>
   <tabstop>le_coef_agent</tabstop>
   <tabstop>de_coef_date</tabstop>
   <tabstop>le_coef_price</tabstop>
   <tabstop>le_coef_price_text</tabstop>
   <tabstop>cmb_coef_service</tabstop>
+  <tabstop>pb_coef_toggle_service</tabstop>
   <tabstop>le_coef_document</tabstop>
   <tabstop>le_coef_document_code</tabstop>
   <tabstop>de_coef_document_issue_date</tabstop>
   <tabstop>le_coef_document_issue_place</tabstop>
-  <tabstop>pb_coef_toggle_service</tabstop>
+  <tabstop>pte_coef_addiction</tabstop>
+  <tabstop>pb_coef_save</tabstop>
+  <tabstop>pb_coef_open_file</tabstop>
+  <tabstop>pb_coef_open_folder</tabstop>
+  <tabstop>pb_coef_docx</tabstop>
   <tabstop>le_corf1_agent</tabstop>
   <tabstop>de_corf1_date</tabstop>
   <tabstop>le_corf1_price</tabstop>
   <tabstop>le_corf1_price_text</tabstop>
   <tabstop>cmb_corf1_service</tabstop>
+  <tabstop>pb_corf1_toggle_service</tabstop>
+  <tabstop>pb_corf1_save</tabstop>
+  <tabstop>pb_corf1_open_file</tabstop>
+  <tabstop>pb_corf1_open_folder</tabstop>
+  <tabstop>pb_corf1_docx</tabstop>
   <tabstop>le_corf2_agent</tabstop>
   <tabstop>de_corf2_date</tabstop>
   <tabstop>le_corf2_price</tabstop>
   <tabstop>le_corf2_price_text</tabstop>
   <tabstop>cmb_corf2_service</tabstop>
   <tabstop>pb_corf2_toggle_service</tabstop>
-  <tabstop>pb_corf1_toggle_service</tabstop>
+  <tabstop>pb_corf2_save</tabstop>
+  <tabstop>pb_corf2_open_file</tabstop>
+  <tabstop>pb_corf2_open_folder</tabstop>
+  <tabstop>pb_corf2_docx</tabstop>
   <tabstop>tw_addictions</tabstop>
  </tabstops>
  <resources>

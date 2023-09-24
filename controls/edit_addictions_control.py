@@ -11,15 +11,14 @@ from views.edit_addictions_window import Ui_EditAddictionsWindow
 
 
 class EditAddictionsControl(QtWidgets.QMainWindow, Ui_EditAddictionsWindow):
-    def __init__(self, widget: QtWidgets.QDialog, main, context: list):
+    def __init__(self, widget: QtWidgets.QDialog, main, context):
         super().__init__()
-        super().setupUi(widget)
         self.widget = widget
         self.main = main
         self.number = context[0]
         self.company = context[2]
-        self.dbm = DatabaseModel()
         self.no = 'Заказчик отказался от услуг по собственной инициативе'
+        self.dbm = DatabaseModel()
         self.setupUi(widget)
         self.connectUi()
         self.loadServices()
@@ -27,6 +26,7 @@ class EditAddictionsControl(QtWidgets.QMainWindow, Ui_EditAddictionsWindow):
         self.loadData()
 
     def setupUi(self, widget):
+        super().setupUi(widget)
         validator = QtGui.QDoubleValidator(0.0, 1.7976931348623157e+308, 2)
         validator.setNotation(QtGui.QDoubleValidator.Notation.StandardNotation)
         self.le_af_price.setValidator(validator)

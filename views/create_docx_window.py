@@ -26,7 +26,6 @@ class Ui_CreateDocxWindow(object):
         if not CreateDocxWindow.objectName():
             CreateDocxWindow.setObjectName(u"CreateDocxWindow")
         CreateDocxWindow.resize(650, 449)
-        CreateDocxWindow.setMinimumSize(QSize(650, 0))
         icon = QIcon()
         icon.addFile(u":/images/pngs/main-icon.png", QSize(), QIcon.Normal, QIcon.Off)
         CreateDocxWindow.setWindowIcon(icon)
@@ -348,10 +347,13 @@ class Ui_CreateDocxWindow(object):
         QWidget.setTabOrder(self.le_company, self.de_contract_date)
         QWidget.setTabOrder(self.de_contract_date, self.le_price)
         QWidget.setTabOrder(self.le_price, self.cmb_service)
-        QWidget.setTabOrder(self.cmb_service, self.le_first_price)
+        QWidget.setTabOrder(self.cmb_service, self.pb_toggle_service)
+        QWidget.setTabOrder(self.pb_toggle_service, self.cb_part_price)
+        QWidget.setTabOrder(self.cb_part_price, self.le_first_price)
         QWidget.setTabOrder(self.le_first_price, self.le_second_price)
         QWidget.setTabOrder(self.le_second_price, self.de_contract_end_date)
-        QWidget.setTabOrder(self.de_contract_end_date, self.le_agent)
+        QWidget.setTabOrder(self.de_contract_end_date, self.cb_agent)
+        QWidget.setTabOrder(self.cb_agent, self.le_agent)
         QWidget.setTabOrder(self.le_agent, self.de_birthday)
         QWidget.setTabOrder(self.de_birthday, self.le_phone)
         QWidget.setTabOrder(self.le_phone, self.le_passport_code)
@@ -360,9 +362,6 @@ class Ui_CreateDocxWindow(object):
         QWidget.setTabOrder(self.le_passport_kp, self.pte_passport_issue_place)
         QWidget.setTabOrder(self.pte_passport_issue_place, self.pb_create)
         QWidget.setTabOrder(self.pb_create, self.pb_clear)
-        QWidget.setTabOrder(self.pb_clear, self.pb_toggle_service)
-        QWidget.setTabOrder(self.pb_toggle_service, self.cb_part_price)
-        QWidget.setTabOrder(self.cb_part_price, self.cb_agent)
 
         self.retranslateUi(CreateDocxWindow)
 

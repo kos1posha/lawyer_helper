@@ -179,6 +179,7 @@ class Ui_PrintDocxWindow(object):
 
         self.sb_contract_count = QSpinBox(PrintDocxWindow)
         self.sb_contract_count.setObjectName(u"sb_contract_count")
+        self.sb_contract_count.setEnabled(False)
         sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -189,6 +190,7 @@ class Ui_PrintDocxWindow(object):
 
         self.sb_coef_count = QSpinBox(PrintDocxWindow)
         self.sb_coef_count.setObjectName(u"sb_coef_count")
+        self.sb_coef_count.setEnabled(False)
         sizePolicy.setHeightForWidth(self.sb_coef_count.sizePolicy().hasHeightForWidth())
         self.sb_coef_count.setSizePolicy(sizePolicy)
 
@@ -196,6 +198,7 @@ class Ui_PrintDocxWindow(object):
 
         self.sb_corf1_count = QSpinBox(PrintDocxWindow)
         self.sb_corf1_count.setObjectName(u"sb_corf1_count")
+        self.sb_corf1_count.setEnabled(False)
         sizePolicy.setHeightForWidth(self.sb_corf1_count.sizePolicy().hasHeightForWidth())
         self.sb_corf1_count.setSizePolicy(sizePolicy)
 
@@ -203,6 +206,7 @@ class Ui_PrintDocxWindow(object):
 
         self.sb_act_count = QSpinBox(PrintDocxWindow)
         self.sb_act_count.setObjectName(u"sb_act_count")
+        self.sb_act_count.setEnabled(False)
         sizePolicy.setHeightForWidth(self.sb_act_count.sizePolicy().hasHeightForWidth())
         self.sb_act_count.setSizePolicy(sizePolicy)
 
@@ -210,11 +214,24 @@ class Ui_PrintDocxWindow(object):
 
         self.sb_corf2_count = QSpinBox(PrintDocxWindow)
         self.sb_corf2_count.setObjectName(u"sb_corf2_count")
+        self.sb_corf2_count.setEnabled(False)
         sizePolicy.setHeightForWidth(self.sb_corf2_count.sizePolicy().hasHeightForWidth())
         self.sb_corf2_count.setSizePolicy(sizePolicy)
 
         self.gl_main.addWidget(self.sb_corf2_count, 5, 1, 1, 1)
 
+        QWidget.setTabOrder(self.cb_contract, self.sb_contract_count)
+        QWidget.setTabOrder(self.sb_contract_count, self.cb_act)
+        QWidget.setTabOrder(self.cb_act, self.sb_act_count)
+        QWidget.setTabOrder(self.sb_act_count, self.cb_coef)
+        QWidget.setTabOrder(self.cb_coef, self.sb_coef_count)
+        QWidget.setTabOrder(self.sb_coef_count, self.cb_corf1)
+        QWidget.setTabOrder(self.cb_corf1, self.sb_corf1_count)
+        QWidget.setTabOrder(self.sb_corf1_count, self.cb_corf2)
+        QWidget.setTabOrder(self.cb_corf2, self.sb_corf2_count)
+        QWidget.setTabOrder(self.sb_corf2_count, self.cmb_printers)
+        QWidget.setTabOrder(self.cmb_printers, self.pb_print)
+        QWidget.setTabOrder(self.pb_print, self.pb_refresh_printers)
 
         self.retranslateUi(PrintDocxWindow)
 

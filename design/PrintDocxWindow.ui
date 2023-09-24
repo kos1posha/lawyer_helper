@@ -319,6 +319,9 @@
    </item>
    <item row="1" column="1">
     <widget class="QSpinBox" name="sb_contract_count">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -329,6 +332,9 @@
    </item>
    <item row="3" column="1">
     <widget class="QSpinBox" name="sb_coef_count">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -339,6 +345,9 @@
    </item>
    <item row="4" column="1">
     <widget class="QSpinBox" name="sb_corf1_count">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -349,6 +358,9 @@
    </item>
    <item row="2" column="1">
     <widget class="QSpinBox" name="sb_act_count">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -359,6 +371,9 @@
    </item>
    <item row="5" column="1">
     <widget class="QSpinBox" name="sb_corf2_count">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -369,6 +384,21 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>cb_contract</tabstop>
+  <tabstop>sb_contract_count</tabstop>
+  <tabstop>cb_act</tabstop>
+  <tabstop>sb_act_count</tabstop>
+  <tabstop>cb_coef</tabstop>
+  <tabstop>sb_coef_count</tabstop>
+  <tabstop>cb_corf1</tabstop>
+  <tabstop>sb_corf1_count</tabstop>
+  <tabstop>cb_corf2</tabstop>
+  <tabstop>sb_corf2_count</tabstop>
+  <tabstop>cmb_printers</tabstop>
+  <tabstop>pb_print</tabstop>
+  <tabstop>pb_refresh_printers</tabstop>
+ </tabstops>
  <resources>
   <include location="../resources/resources.qrc"/>
  </resources>

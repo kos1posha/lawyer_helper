@@ -1,4 +1,4 @@
-import win32api
+import win32api, win32print
 
 from PySide6 import QtWidgets, QtPrintSupport
 
@@ -10,7 +10,6 @@ from views.print_docx_window import Ui_PrintDocxWindow
 class PrintDocxControl(QtWidgets.QMainWindow, Ui_PrintDocxWindow):
     def __init__(self, widget: QtWidgets.QDialog, main, number: int):
         super().__init__()
-        super().setupUi(widget)
         self.widget = widget
         self.main = main
         self.number = number
@@ -21,10 +20,16 @@ class PrintDocxControl(QtWidgets.QMainWindow, Ui_PrintDocxWindow):
         self.loadData()
 
     def setupUi(self, widget):
+        super().setupUi(widget)
         self.widget.setMaximumWidth(self.widget.width())
         self.widget.setMaximumHeight(self.widget.height())
 
     def connectUi(self):
+        self.cb_contract.stateChanged.connect(lambda state: self.sb_contract_count.setEnabled(state == 2))
+        self.cb_act.stateChanged.connect(lambda state: self.sb_act_count.setEnabled(state == 2))
+        self.cb_coef.stateChanged.connect(lambda state: self.sb_coef_count.setEnabled(state == 2))
+        self.cb_corf1.stateChanged.connect(lambda state: self.sb_corf1_count.setEnabled(state == 2))
+        self.cb_corf2.stateChanged.connect(lambda state: self.sb_corf2_count.setEnabled(state == 2))
         self.pb_refresh_printers.clicked.connect(self.loadPrinters)
         self.pb_print.clicked.connect(self.print)
 
@@ -32,14 +37,10 @@ class PrintDocxControl(QtWidgets.QMainWindow, Ui_PrintDocxWindow):
         self.cmb_printers.clear()
         for printer in QtPrintSupport.QPrinterInfo.availablePrinterNames():
             self.cmb_printers.addItem(printer)
+        self.cmb_printers.setCurrentText(win32print.GetDefaultPrinter())
 
     def loadData(self):
-        paths = [
-            self.dbm.contracts.get(self.number),
-            self.dbm.acts.get(self.number),
-            self.dbm.ce_orders.get(self.number),
-            self.dbm.cr_orders.get(self.number),
-        ]
+        paths = [self.dbm.contracts.get(self.number), self.dbm.acts.get(self.number), self.dbm.ce_orders.get(self.number), self.dbm.cr_orders.get(self.number)]
         self.l_contract_path.setText(f'Путь: {paths[0][-1] if paths[0] else "-"}')
         self.l_act_path.setText(f'Путь: {paths[1][-1] if paths[1] else "-"}')
         self.l_coef_path.setText(f'Путь: {paths[2][-1] if paths[2] else "-"}')
@@ -65,10 +66,9 @@ class PrintDocxControl(QtWidgets.QMainWindow, Ui_PrintDocxWindow):
                 self._print_impl(self.l_corf2_path.text()[6:], int(self.sb_corf2_count.text()))
 
     def _print_impl(self, docx, count):
-        f = f'"{docx}"'
         try:
             for _ in range(count):
-                win32api.ShellExecute(0, "printto", f, '"%s"' % self.cmb_printers.currentText(), ".", 0)
+                win32api.ShellExecute(0, "printto", f'"{docx}"', '"%s"' % self.cmb_printers.currentText(), ".", 0)
         except Exception as e:
             shell_execute_error(e.__str__().translate({ord('\''): None, ord('('): None, ord(')'): None}).split(',')[2], docx)
 

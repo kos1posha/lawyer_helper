@@ -790,9 +790,12 @@
   <tabstop>de_contract_date</tabstop>
   <tabstop>le_price</tabstop>
   <tabstop>cmb_service</tabstop>
+  <tabstop>pb_toggle_service</tabstop>
+  <tabstop>cb_part_price</tabstop>
   <tabstop>le_first_price</tabstop>
   <tabstop>le_second_price</tabstop>
   <tabstop>de_contract_end_date</tabstop>
+  <tabstop>cb_agent</tabstop>
   <tabstop>le_agent</tabstop>
   <tabstop>de_birthday</tabstop>
   <tabstop>le_phone</tabstop>
@@ -802,9 +805,6 @@
   <tabstop>pte_passport_issue_place</tabstop>
   <tabstop>pb_create</tabstop>
   <tabstop>pb_clear</tabstop>
-  <tabstop>pb_toggle_service</tabstop>
-  <tabstop>cb_part_price</tabstop>
-  <tabstop>cb_agent</tabstop>
  </tabstops>
  <resources>
   <include location="../resources/resources.qrc"/>

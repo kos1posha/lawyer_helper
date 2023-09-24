@@ -3,9 +3,8 @@ from datetime import datetime
 
 from PySide6 import QtWidgets, QtGui
 
-from controls._messages import ask_for_delete, export_xlsx_success, path_doesnt_exists, \
-    file_permission_denied
 from controls._functions import open_file, open_folder, preview_word, full_date, short_name
+from controls._messages import ask_for_delete, export_xlsx_success, path_doesnt_exists, file_permission_denied
 from controls._widgets import ContractsTableWidgetItem
 from controls.create_docx_control import CreateDocxControl
 from controls.edit_addictions_control import EditAddictionsControl
@@ -19,29 +18,21 @@ from views.main_window import Ui_MainWindow
 class MainControl(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self, widget: QtWidgets.QMainWindow):
         super().__init__()
-        super().setupUi(widget)
         self.widget = widget
-        self.dbm = DatabaseModel()
         self.ask_for_delete = True
         self.filter_with_hidden_columns = True
         self.show_contract_info = True
-        self.loadData()
+        self.dbm = DatabaseModel()
         self.setupUi(widget)
         self.connectUi()
-
-    def loadData(self):
-        contracts = self.dbm.contracts.get_all()
-        for contract in contracts: self.add_contract(contract)
-        self.ask_for_delete = self.dbm.prop.get_ask_for_delete()
-        self.filter_with_hidden_columns = self.dbm.prop.get_filter_with_hidden_columns()
-        self.show_contract_info = self.dbm.prop.get_show_contract_info()
+        self.loadData()
 
     def setupUi(self, widget):
+        super().setupUi(widget)
         self.le_filter.setMinimumWidth(225)
         self.tw_contracts.setSortingEnabled(True)
         self.tw_contracts.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectionBehavior.SelectRows)
         self.tw_contracts.sortByColumn(0, QtGui.Qt.SortOrder.DescendingOrder)
-        self.adjust_contracts_table()
         self.a_ask_for_delete.setChecked(self.ask_for_delete)
         self.a_filter_with_hidden_columns.setChecked(self.filter_with_hidden_columns)
         self.a_show_contract_info.setChecked(self.show_contract_info)
@@ -49,8 +40,7 @@ class MainControl(QtWidgets.QMainWindow, Ui_MainWindow):
         self.te_contract_info.setVisible(self.show_contract_info)
         visible_columns = self.dbm.prop.get_visible_columns()
         for column in range(14):
-            if column in visible_columns:
-                self.widget.findChild(QtGui.QAction, f'a_column_{column}').setChecked(True)
+            if column in visible_columns: self.widget.findChild(QtGui.QAction, f'a_column_{column}').setChecked(True)
             else: self.tw_contracts.hideColumn(column)
 
     def connectUi(self):
@@ -84,6 +74,14 @@ class MainControl(QtWidgets.QMainWindow, Ui_MainWindow):
         self.a_ask_for_delete.changed.connect(self.toggle_ask_for_delete)
         self.a_filter_with_hidden_columns.changed.connect(self.toggle_filter_with_hidden_columns)
         self.a_show_contract_info.changed.connect(self.toggle_show_contract_info)
+
+    def loadData(self):
+        contracts = self.dbm.contracts.get_all()
+        for contract in contracts: self.add_contract(contract)
+        self.ask_for_delete = self.dbm.prop.get_ask_for_delete()
+        self.filter_with_hidden_columns = self.dbm.prop.get_filter_with_hidden_columns()
+        self.show_contract_info = self.dbm.prop.get_show_contract_info()
+        self.adjust_contracts_table()
 
     def add_contract(self, data):
         self.tw_contracts.setSortingEnabled(False)

@@ -33,7 +33,7 @@ class WordPreviewControl(QtWidgets.QMainWindow, Ui_WordPreviewWindow):
     def get_html(self, path):
         word = win32com.client.gencache.EnsureDispatch('Word.Application')
         docx = word.Documents.Open(path)
-        temp_path = os.getcwd() + fr'\~preview.{random.randint(1000, 9999)}.html'
+        temp_path = os.getcwd() + f'\\~preview_{random.randint(1000, 9999)}.html'
         docx.SaveAs(temp_path, 10)
         with open(temp_path) as temp_file:
             html = temp_file.read()

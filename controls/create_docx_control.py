@@ -13,7 +13,6 @@ from views.create_docx_window import Ui_CreateDocxWindow
 class CreateDocxControl(QtWidgets.QMainWindow, Ui_CreateDocxWindow):
     def __init__(self, widget: QtWidgets.QDialog, main, context=None, number=None, path=None):
         super().__init__()
-        super().setupUi(widget)
         self.widget = widget
         self.main = main
         self.number = number
@@ -24,12 +23,8 @@ class CreateDocxControl(QtWidgets.QMainWindow, Ui_CreateDocxWindow):
         self.loadServices()
         self.pushContext(context)
 
-    def loadServices(self):
-        for service in self.dbm.services.get_all():
-            self.cmb_service.addItem(str(service))
-        self.cmb_service.setCurrentText('')
-
     def setupUi(self, widget):
+        super().setupUi(widget)
         validator = QtGui.QDoubleValidator(0.0, 1.7976931348623157e+308, 2)
         validator.setNotation(QtGui.QDoubleValidator.Notation.StandardNotation)
         if self.path is not None:
@@ -54,6 +49,11 @@ class CreateDocxControl(QtWidgets.QMainWindow, Ui_CreateDocxWindow):
         self.le_first_price.textChanged.connect(self.first_price_changed)
         self.pb_clear.clicked.connect(self.clear_all)
         self.pb_create.clicked.connect(self.create_contract)
+
+    def loadServices(self):
+        for service in self.dbm.services.get_all():
+            self.cmb_service.addItem(str(service))
+        self.cmb_service.setCurrentText('')
 
     def pushContext(self, context):
         if context is not None:

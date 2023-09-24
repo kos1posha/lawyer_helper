@@ -966,12 +966,14 @@ p, li { white-space: pre-wrap; }
  <tabstops>
   <tabstop>pb_create</tabstop>
   <tabstop>pb_delete</tabstop>
+  <tabstop>pb_edit</tabstop>
   <tabstop>pb_duplicate</tabstop>
   <tabstop>pb_open_file</tabstop>
   <tabstop>pb_open_folder</tabstop>
   <tabstop>pb_edit_contract_addictions</tabstop>
   <tabstop>pb_preview_docx</tabstop>
   <tabstop>pb_export_to_xlsx</tabstop>
+  <tabstop>pb_print</tabstop>
   <tabstop>pb_adjust</tabstop>
   <tabstop>le_filter</tabstop>
   <tabstop>tw_contracts</tabstop>

@@ -7,7 +7,5 @@ class ContractsTableWidgetItem(QtWidgets.QTableWidgetItem):
         self.setFlags(super().flags() ^ QtCore.Qt.ItemFlag.ItemIsEditable)
 
     def __lt__(self, other):
-        try:
-            return float(self.text()) < float(other.text())
-        except:
-            return self.text() < other.text()
+        try: return float(self.text()) < float(other.text())
+        except: return self.text() < other.text()
