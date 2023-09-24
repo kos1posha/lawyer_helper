@@ -108,7 +108,7 @@ class EditAddictionsControl(QtWidgets.QMainWindow, Ui_EditAddictionsWindow):
             self.de_af_date.setDate(QtCore.QDate(QtCore.QDate.fromString(act[2], 'dd.MM.yyyy')))
             self.le_af_agent.setText(act[3])
             self.le_af_company.setText(act[4])
-            self.le_af_price.setText(act[5].replace(',', '.'))
+            self.le_af_price.setText(act[5])
             self.l_af_path.setText('Путь: ' + act[6])
         if ce_order:
             for button in self.t_cash_order_expense_form.findChildren(QtWidgets.QPushButton, QtCore.QRegularExpression('^.+_coef_.+$')):
@@ -116,7 +116,7 @@ class EditAddictionsControl(QtWidgets.QMainWindow, Ui_EditAddictionsWindow):
             self.cmb_coef_service.setCurrentText(ce_order[1])
             self.de_coef_date.setDate(QtCore.QDate.fromString(ce_order[2], 'dd.MM.yyyy'))
             self.le_coef_agent.setText(ce_order[3])
-            self.le_coef_price.setText(ce_order[4].replace(',', '.'))
+            self.le_coef_price.setText(ce_order[4])
             self.pte_coef_addiction.setPlainText(ce_order[5])
             self.le_coef_document.setText(ce_order[6])
             self.le_coef_document_code.setText(ce_order[7])
@@ -163,7 +163,7 @@ class EditAddictionsControl(QtWidgets.QMainWindow, Ui_EditAddictionsWindow):
                 self.de_af_date.date().toString('dd.MM.yyyy'),
                 self.le_af_agent.text(),
                 self.le_af_company.text(),
-                self.le_af_price.text() if '.' in self.le_af_price.text() else self.le_af_price.text() + '.00',
+                self.le_af_price.text() if ',' in self.le_af_price.text() else self.le_af_price.text() + ',00',
                 dialog,
             ]
             docx = docxtpl.DocxTemplate(os.path.abspath(f'templates/act_tpl.docx'))
@@ -207,7 +207,7 @@ class EditAddictionsControl(QtWidgets.QMainWindow, Ui_EditAddictionsWindow):
                 self.cmb_coef_service.currentText(),
                 self.de_coef_date.date().toString('dd.MM.yyyy'),
                 self.le_coef_agent.text(),
-                self.le_coef_price.text() if '.' in self.le_coef_price.text() else self.le_coef_price.text() + '.00',
+                self.le_coef_price.text() if ',' in self.le_coef_price.text() else self.le_coef_price.text() + ',00',
                 self.pte_coef_addiction.toPlainText(),
                 self.le_coef_document.text(),
                 self.le_coef_document_code.text(),
@@ -256,7 +256,7 @@ class EditAddictionsControl(QtWidgets.QMainWindow, Ui_EditAddictionsWindow):
                 self.cmb_corf1_service.currentText(),
                 self.de_corf1_date.date().toString('dd.MM.yyyy'),
                 self.le_corf1_agent.text(),
-                self.le_corf1_price.text() if '.' in self.le_corf1_price.text() else self.le_corf1_price.text() + '.00',
+                self.le_corf1_price.text() if ',' in self.le_corf1_price.text() else self.le_corf1_price.text() + ',00',
                 dialog,
             ]
             docx = docxtpl.DocxTemplate(os.path.abspath(f'templates/cash_receipt_order_tpl.docx'))
@@ -301,7 +301,7 @@ class EditAddictionsControl(QtWidgets.QMainWindow, Ui_EditAddictionsWindow):
                 self.cmb_corf2_service.currentText(),
                 self.de_corf2_date.date().toString('dd.MM.yyyy'),
                 self.le_corf2_agent.text(),
-                self.le_corf2_price.text() if '.' in self.le_corf2_price.text() else self.le_corf2_price.text() + '.00',
+                self.le_corf2_price.text() if ',' in self.le_corf2_price.text() else self.le_corf2_price.text() + ',00',
                 dialog,
             ]
             docx = docxtpl.DocxTemplate(os.path.abspath(f'templates/cash_receipt_order_tpl.docx'))

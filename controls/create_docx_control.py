@@ -104,9 +104,9 @@ class CreateDocxControl(QtWidgets.QMainWindow, Ui_CreateDocxWindow):
                 self.le_phone.text() if self.le_phone.text() != '8 ()  ' else '',
                 (self.le_passport_code.text() if self.le_passport_code.text() != '  ' else '-') + ' от ' + self.de_passport_issue_date.date().toString('dd.MM.yyyy') + ', к/п ' + (self.le_passport_kp.text() if self.le_passport_kp.text() != '' else '-') + ', ' + (self.pte_passport_issue_place.toPlainText() if self.pte_passport_issue_place.toPlainText() != '' else '-'),
                 self.de_birthday.date().toString('dd.MM.yyyy'),
-                self.le_price.text(),
-                self.le_first_price.text() if self.cb_part_price.isChecked() else '',
-                self.le_second_price.text() if self.cb_part_price.isChecked() else '',
+                self.le_price.text() if ',' not in self.le_price.text() else self.le_price.text().ljust(len(self.le_price.text().split(',')[0]) + 3, '0'),
+                (self.le_first_price.text() if ',' not in self.le_first_price.text() else self.le_first_price.text().ljust(len(self.le_first_price.text().split(',')[0]) + 3, '0')) if self.cb_part_price.isChecked() else '',
+                (self.le_second_price.text() if ',' not in self.le_second_price.text() else self.le_second_price.text().ljust(len(self.le_second_price.text().split(',')[0]) + 3, '0')) if self.cb_part_price.isChecked() else '',
                 self.de_contract_end_date.date().toString('dd.MM.yyyy'),
                 dialog.rsplit('\\', 1)[-1][:-5],
                 dialog

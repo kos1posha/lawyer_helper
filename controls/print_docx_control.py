@@ -1,6 +1,6 @@
 import win32api, win32print
 
-from PySide6 import QtWidgets, QtPrintSupport
+from PySide6 import QtWidgets, QtPrintSupport, QtCore
 
 from controls._messages import shell_execute_error
 from dbm import DatabaseModel
@@ -49,8 +49,10 @@ class PrintDocxControl(QtWidgets.QMainWindow, Ui_PrintDocxWindow):
         for path in paths[3]:
             if path[1] == '1': self.l_corf1_path.setText(f'Путь: {path[-1]}')
             else: self.l_corf2_path.setText(f'Путь: {path[-1]}')
-        if not paths[0][9]:
-            self.hide_corf2()
+        if not paths[0][9]: self.hide_corf2()
+        for label in self.widget.findChildren(QtWidgets.QLabel, QtCore.QRegularExpression('^l_.+_path$')):
+            if label.text() != 'Путь: -':
+                self.widget.findChild(QtWidgets.QWidget, f'w_{label.objectName().split("_")[1]}').setEnabled(True)
 
     def print(self):
         if self.cmb_printers.currentIndex() != -1:
@@ -68,7 +70,7 @@ class PrintDocxControl(QtWidgets.QMainWindow, Ui_PrintDocxWindow):
     def _print_impl(self, docx, count):
         try:
             for _ in range(count):
-                win32api.ShellExecute(0, "printto", f'"{docx}"', '"%s"' % self.cmb_printers.currentText(), ".", 0)
+                win32api.ShellExecute(0, 'printto', f'"{docx}"', '"%s"' % self.cmb_printers.currentText(), '.', 0)
         except Exception as e:
             shell_execute_error(e.__str__().translate({ord('\''): None, ord('('): None, ord(')'): None}).split(',')[2], docx)
 
