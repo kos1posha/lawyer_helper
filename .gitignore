@@ -1,8 +1,8 @@
 # my
 other/
 exe/
-.sqlite3
-.log
+*.sqlite3
+*.log
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
