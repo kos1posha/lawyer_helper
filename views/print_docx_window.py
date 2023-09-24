@@ -32,6 +32,7 @@ class Ui_PrintDocxWindow(object):
         self.gl_main.setObjectName(u"gl_main")
         self.w_contract = QWidget(PrintDocxWindow)
         self.w_contract.setObjectName(u"w_contract")
+        self.w_contract.setEnabled(False)
         self.gl_contract = QGridLayout(self.w_contract)
         self.gl_contract.setObjectName(u"gl_contract")
         self.gl_contract.setVerticalSpacing(0)
@@ -54,6 +55,7 @@ class Ui_PrintDocxWindow(object):
 
         self.w_coef = QWidget(PrintDocxWindow)
         self.w_coef.setObjectName(u"w_coef")
+        self.w_coef.setEnabled(False)
         self.gl_coef = QGridLayout(self.w_coef)
         self.gl_coef.setObjectName(u"gl_coef")
         self.gl_coef.setVerticalSpacing(0)
@@ -74,6 +76,7 @@ class Ui_PrintDocxWindow(object):
 
         self.w_act = QWidget(PrintDocxWindow)
         self.w_act.setObjectName(u"w_act")
+        self.w_act.setEnabled(False)
         self.gl_act = QGridLayout(self.w_act)
         self.gl_act.setObjectName(u"gl_act")
         self.gl_act.setVerticalSpacing(0)
@@ -94,6 +97,7 @@ class Ui_PrintDocxWindow(object):
 
         self.w_corf1 = QWidget(PrintDocxWindow)
         self.w_corf1.setObjectName(u"w_corf1")
+        self.w_corf1.setEnabled(False)
         self.gl_corf1 = QGridLayout(self.w_corf1)
         self.gl_corf1.setObjectName(u"gl_corf1")
         self.gl_corf1.setVerticalSpacing(0)
@@ -142,6 +146,7 @@ class Ui_PrintDocxWindow(object):
 
         self.w_corf2 = QWidget(PrintDocxWindow)
         self.w_corf2.setObjectName(u"w_corf2")
+        self.w_corf2.setEnabled(False)
         self.gl_corf2 = QGridLayout(self.w_corf2)
         self.gl_corf2.setObjectName(u"gl_corf2")
         self.gl_corf2.setVerticalSpacing(0)

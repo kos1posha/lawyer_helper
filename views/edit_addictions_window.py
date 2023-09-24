@@ -1049,7 +1049,7 @@ class Ui_EditAddictionsWindow(object):
 
         self.retranslateUi(EditAddictionsWindow)
 
-        self.tw_addictions.setCurrentIndex(1)
+        self.tw_addictions.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(EditAddictionsWindow)

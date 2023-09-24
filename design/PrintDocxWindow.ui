@@ -20,6 +20,9 @@
   <layout class="QGridLayout" name="gl_main">
    <item row="1" column="0">
     <widget class="QWidget" name="w_contract" native="true">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <layout class="QGridLayout" name="gl_contract">
       <property name="leftMargin">
        <number>0</number>
@@ -60,6 +63,9 @@
    </item>
    <item row="3" column="0">
     <widget class="QWidget" name="w_coef" native="true">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <layout class="QGridLayout" name="gl_coef">
       <property name="leftMargin">
        <number>0</number>
@@ -100,6 +106,9 @@
    </item>
    <item row="2" column="0">
     <widget class="QWidget" name="w_act" native="true">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <layout class="QGridLayout" name="gl_act">
       <property name="leftMargin">
        <number>0</number>
@@ -140,6 +149,9 @@
    </item>
    <item row="4" column="0">
     <widget class="QWidget" name="w_corf1" native="true">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <layout class="QGridLayout" name="gl_corf1">
       <property name="leftMargin">
        <number>0</number>
@@ -246,6 +258,9 @@
    </item>
    <item row="5" column="0">
     <widget class="QWidget" name="w_corf2" native="true">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <layout class="QGridLayout" name="gl_corf2">
       <property name="leftMargin">
        <number>0</number>
